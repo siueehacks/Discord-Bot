@@ -7,7 +7,7 @@ from discord.ext import commands
 import tweepy
 from dotenv import load_dotenv
 
-from integrations import send_groupme, tweet
+from integrations import send_groupme, tweet, delete_tweet
 
 # Get discord and GroupMe credentials
 load_dotenv()
@@ -48,6 +48,9 @@ async def on_message(message):
         tweet(twitter_client, message)
     elif str(message.channel.id) in TEST_CHANNELS:
         send_groupme(TEST_GROUPME, message)
+        tweet(twitter_client, message)
+        # delete_tweet(twitter_client, tweet_id)
+        
 
     await bot.process_commands(message)
 
