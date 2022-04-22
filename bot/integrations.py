@@ -77,8 +77,10 @@ def tweet(client: tweepy.Client, message: str) -> None:
     client.create_tweet(text = message)
 
 
-def delete_tweet(client: tweepy.Client, id: str) -> None:
+def delete_tweet(client: tweepy.Client, tweet_num: int) -> None:
     """Delete test tweet from Twitter account"""
-    response = client.get_users_tweets(user_id=TWITTERID, max_results=1)
-    pprint(response)
+    response = client.get_users_tweets(id=TWITTERID, user_auth = True, max_results=tweet_num).data
 
+    ids_to_delete = [x['id'] for x in response]
+    for id in ids_to_delete:
+        client.delete_tweet(id)

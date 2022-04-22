@@ -49,8 +49,9 @@ async def on_message(message):
     elif str(message.channel.id) in TEST_CHANNELS:
         send_groupme(TEST_GROUPME, message)
 
-        if message.content.startswith('!delete'):
-            delete_tweets(twitter_client, message)
+        if message.content.startswith(')delete'):
+            num = int(message.content.split(' ')[1])
+            delete_tweet(twitter_client, num)
         else:
             tweet(twitter_client, message)
         
