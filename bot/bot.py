@@ -7,7 +7,8 @@ from discord.ext import commands
 import tweepy
 from dotenv import load_dotenv
 
-from integrations import send_groupme, tweet, delete_tweet
+from groupme import send_groupme
+from twitter import tweet, delete_tweet
 
 # Get discord and GroupMe credentials
 load_dotenv()
