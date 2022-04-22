@@ -48,8 +48,11 @@ async def on_message(message):
         tweet(twitter_client, message)
     elif str(message.channel.id) in TEST_CHANNELS:
         send_groupme(TEST_GROUPME, message)
-        tweet(twitter_client, message)
-        # delete_tweet(twitter_client, tweet_id)
+
+        if message.content.startswith('!delete'):
+            delete_tweets(twitter_client, message)
+        else:
+            tweet(twitter_client, message)
         
 
     await bot.process_commands(message)
