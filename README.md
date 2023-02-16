@@ -1,8 +1,6 @@
 # SPARC Discord Bot
-Bot that automatically shares Discord announcements to GroupMe and Twitter
+This was a discord bot that was made for SPARC (which is no longer a thing)
 
-Written in Python and deployed using Heroku
+I have copied it over to the ehacks account. Maybe it can be repurposed for CAOS or ehacks. 
 
-# TODO and IDEAS
-- Write automated tests for the bot
-- Integrate with Google Calendar?
+It was running on heroku but is no longer hosted due to heroku no longer having a free tier :(
